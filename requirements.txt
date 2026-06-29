@@ -1,0 +1,14 @@
+# Dependências do Research Document Searcher
+
+# Essencial
+pypdf>=4.0.0           # Extração de PDF
+python-docx>=0.8.11    # Suporte a DOCX
+pyyaml>=6.0            # Configuração YAML
+
+# Opcional (mas recomendado)
+tqdm>=4.65.0           # Barras de progresso
+lxml>=4.9.0            # Parsing XML (futuro)
+
+# Desenvolvimento
+pytest>=7.0            # Testes unitários
+black>=23.0            # Formatação de código

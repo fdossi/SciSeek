@@ -1,0 +1,130 @@
+# Research Document Searcher - Configuração Padrão
+# Edite este arquivo ou crie uma cópia personalizada
+
+application:
+  name: "Research Document Searcher"
+  version: "1.0.0"
+  language: "pt-BR"
+
+file_formats:
+  enabled:
+    - pdf
+    - docx
+    - md
+    - txt
+  disabled:
+    - xml
+    - xlsx
+
+search_groups:
+  microscopy:
+    name: "Microscopia e Histologia"
+    patterns:
+      - microscop
+      - confocal
+      - electron microscop
+      - TEM
+      - SEM
+      - AFM
+      - SHG
+      - two-photon
+      - multiphoton
+      - polarization
+      - histochemical
+      - histochemistry
+      - histology
+      - histological
+      - morpholog
+      - tissue clearing
+      - microraman
+      - raman microscop
+      - intravital
+      - immunofluorescence
+      - immunohistochemistry
+
+  molecular_biology:
+    name: "Biologia Molecular e Sample Prep"
+    patterns:
+      - RNA-Seq
+      - qPCR
+      - RT-PCR
+      - cDNA
+      - Trizol
+      - extraction_buffer
+      - lysis_buffer
+      - homogenization
+      - sonication
+      - bead beating
+      - spin column
+      - DNase
+      - RNase
+      - phenol-chloroform
+      - transcriptome
+      - gene expression
+
+  plastics:
+    name: "Microplásticos e Nanoplásticos"
+    patterns:
+      - microplastic
+      - nanoplastic
+      - MNP
+      - PS-MNP
+      - polystyrene
+      - polyethylene
+      - polypropylene
+      - PVC
+      - PET
+      - PMMA
+      - plastic particle
+
+extraction:
+  pdf:
+    max_pages: 30
+    timeout_seconds: 10
+    fallback_encoding: "utf-8"
+
+  docx:
+    include_headers_footers: false
+    include_tables: true
+
+  markdown:
+    parse_frontmatter: true
+    include_code_blocks: false
+
+extraction_general:
+  chunk_size: 5000
+  normalize_text: true
+  cache_results: true
+
+output:
+  format: "markdown"  # markdown, csv, json, html, bibtex
+  include_metadata: true
+  include_errors: true
+  include_statistics: true
+
+search:
+  case_sensitive: false
+  fuzzy_matching: false
+  fuzzy_threshold: 0.8
+  regex_support: true
+  proximity_words: 10
+  boolean_operators: true
+
+database:
+  cache_enabled: true
+  cache_directory: ".cache"
+  cache_ttl_days: 30
+  history_enabled: true
+  max_history_entries: 50
+
+paths:
+  use_relative_paths: true
+  resolve_symlinks: false
+  ignore_hidden_files: true
+  recursive_search: true
+
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR
+  file_output: true
+  console_output: true
+  log_file: "research_searcher.log"
