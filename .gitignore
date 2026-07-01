@@ -17,9 +17,12 @@ dist/
 .pytest_cache/
 .mypy_cache/
 .cache/
+.ruff_cache/
+**/__pycache__/
 
 # Logs
 *.log
+research_searcher.log
 
 # OS/editor
 .DS_Store
@@ -28,3 +31,8 @@ Thumbs.db
 
 # Project outputs
 outputs/
+out/
+
+# Packaging metadata
+sciseek.egg-info/
+*.spec.bak
